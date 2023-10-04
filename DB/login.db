@@ -1,8 +1,8 @@
 
 CREATE TABLE `t_usuarios` (
-  `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `usuario` varchar(24) NOT NULL,
-  `password` varchar(24) NOT NULL,
-  `admin` boolean DEFAULT FALSE,
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `usuario` VARCHAR(24) NOT NULL,
+  `password` VARCHAR(24) NOT NULL,
+  `admin` BOOLEAN DEFAULT FALSE,
   PRIMARY KEY (`id_usuario`)
 );
