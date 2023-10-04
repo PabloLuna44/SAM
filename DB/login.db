@@ -1,0 +1,11 @@
+create database login;
+show databases
+USE login;
+
+CREATE TABLE `animales` (
+  `id_usuario` int NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(24) NOT NULL,
+  `password` varchar(24) NOT NULL,
+  `admin` boolean DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);

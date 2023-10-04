@@ -1,3 +1,11 @@
+<?php session_start();
+
+if(!isset($_SESSION['usuario'])){
+    header("location:index.php");//Si el usuario no esta logiado no va a poder acceder a inicio NOTA:usar esto para cuando un usuario sea admin
+}
+   
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,16 +37,20 @@
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
+
+        <li  class="nav-item">
+          <a style="color:black" class="nav-link" href="#"><?php echo $_SESSION['usuario'];?></a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a style="color:red" class="nav-link" href="servidor/login/logout.php">Log out</a>
         </li>
+        
       </ul>
     </div>
   </div>
 </nav>
+
 
 <!-- Full Page Image Header with Vertically Centered Content -->
 <header class="masthead">
