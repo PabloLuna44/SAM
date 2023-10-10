@@ -19,7 +19,7 @@
             header("location:../../inicio_trabajador.php");
         }
 
-        echo "No se pudo logear";
+        header("location:../../error.php");
 
     }
 
