@@ -1,5 +1,5 @@
 <?php 
-    include "../../clases/Auth.php";
+    include "../../clases/Auth_admin.php";
     $usuario = $_POST['usuario'];
     $password= password_hash($_POST['password'],PASSWORD_DEFAULT);
     $sexo=$_POST['sexo'];

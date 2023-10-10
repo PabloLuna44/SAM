@@ -1,7 +1,7 @@
 <?php
 
 
- include "../../clases/Auth.php";
+ include "../../clases/Auth_admin.php";
 
 
  $usuario= $_POST['usuario'];

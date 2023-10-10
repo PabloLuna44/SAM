@@ -21,7 +21,7 @@
             <div class="col-md-9 col-lg-8 mx-auto">
               <h3 class="login-heading mb-4">Login de usuario</h3>
 
-              <!-- Sign In Form -->
+              <!-- Sign In Form para administrador -->
               <form  action="servidor/login/logear.php" method="post">
                 <div class="form-floating mb-3">
                   <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuario">
@@ -32,13 +32,16 @@
                   <label for="password">Password</label>
                 </div>
                 <div class="d-grid">
-                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Entrar</button>
+                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="dec" value="1">Administrador</button>
+                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="dec" value="0">Trabajador</button>
                   <div class="text-center">
                     <a style="color:black;" class="small" href="registro.php">Registrate aqui!</a>
                   </div>
                 </div>
-
               </form>
+
+
+              
             </div>
           </div>
         </div>

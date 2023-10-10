@@ -4,8 +4,8 @@ class Conexion{
       public $servidor='localhost';
       public $usuario='root';
       public $password='';
-      public $database='login';
-      public $port='3306';
+      public $database='zapateria';
+      public $port='3307';
 
 
 
