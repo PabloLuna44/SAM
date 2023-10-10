@@ -1,3 +1,4 @@
+
 <?php session_start();
     include "../../clases/Auth.php";
     $usuario = $_POST['usuario'];
@@ -9,7 +10,10 @@
         header("location:../../inicio.php");
 
     } else {
+
+        header("location:../../error.php");
         echo "No se pudo logear";
+
     }
 
 ?>

@@ -1,4 +1,6 @@
-<?php 
+<?php if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
     include "Conexion.php";
 
     class Auth extends Conexion {
@@ -9,6 +11,41 @@
             $query = $conexion->prepare($sql);
             $query->bind_param('ss', $usuario, $password);
             return $query->execute();
+        }
+
+        public function editar($usuario, $password, $sexo, $horario, $direccion, $telefono) {
+            $CurrentUser = $_SESSION['usuario'];
+            $conexion = parent::conectar();
+            $sql = "UPDATE t_usuarios SET `usuario`=?, `password`=?, `sexo`=?, `horario`=?, `direccion`=?, `telefono`=? WHERE usuario=?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('sssssss', $usuario, $password, $sexo, $horario, $direccion, $telefono, $CurrentUser);
+            $_SESSION['usuario']=$usuario;
+            $_SESSION['sexo']=$sexo;
+            $_SESSION['horario']=$horario;
+            $_SESSION['direccion']=$direccion;
+            $_SESSION['telefono']=$telefono;
+            $_SESSION['password'];
+
+
+            return $query->execute();
+        }
+        
+        public function User() {
+            $conexion = parent::conectar();
+            $CurrentUser = $_SESSION['usuario'];
+            $sql = "SELECT * FROM t_usuarios WHERE usuario = ?";
+            
+            $query = $conexion->prepare($sql);
+            $query->bind_param('s', $CurrentUser);
+            $query->execute();
+            
+            $resultado = $query->get_result();
+            
+            if ($resultado->num_rows > 0) {
+                return $resultado->fetch_assoc();
+            } else {
+                return null; // Usuario no encontrado
+            }
         }
 
         public function logear($usuario, $password) {
@@ -24,8 +61,17 @@
                 $passwordExistente = $passwordExistente['password'];
                 
                 if (password_verify($password,$passwordExistente)) {
-                    
                     $_SESSION['usuario'] = $usuario;
+                    $_SESSION['password']= $password;
+
+                    $usuario=$this->User();
+
+                    $_SESSION['sexo'] = $usuario['sexo'];
+                    $_SESSION['horario'] = $usuario['horario'];
+                    $_SESSION['direccion'] = $usuario['direccion'];
+                    $_SESSION['telefono'] = $usuario['telefono'];
+                    
+                    
                     return true;
                 } else {
                     return false;
