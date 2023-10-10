@@ -25,24 +25,27 @@ if(!isset($_SESSION['usuario'])){
     <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Start Bootstrap</a>
+    <a class="navbar-brand" href="inicio.php">SAM</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="inicio.php">Home</a>
         </li>
         <li class="nav-item">
+          <!-- Agregar en about infomacion sobre la empresa -->
           <a class="nav-link" href="#">About</a>
         </li>
 
         <li  class="nav-item">
-          <a style="color:black" class="nav-link" href="#"><?php echo $_SESSION['usuario'];?></a>
+          <!-- Muestra la usuario de la session activa -->
+          <a style="color:black" class="nav-link" href="editar.php"><?php echo $_SESSION['usuario'];?></a>
         </li>
 
         <li class="nav-item">
+          <!-- Saca al usuario de la session y muestra la pagina de login -->
           <a style="color:red" class="nav-link" href="servidor/login/logout.php">Log out</a>
         </li>
         

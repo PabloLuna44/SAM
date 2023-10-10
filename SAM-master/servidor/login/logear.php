@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
     include "../../clases/Auth.php";
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
@@ -9,7 +9,7 @@
         header("location:../../inicio.php");
 
     } else {
-        echo "No se pudo logear";
+        header("location:../../error.php");
     }
 
 ?>
