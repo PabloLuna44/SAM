@@ -17,11 +17,11 @@ if (!isset($_SESSION['usuario'])) {
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="public/css/login.css">
+  <link rel="stylesheet" href="public/css/editar.css">
   <title>Editar</title>
 </head>
 
-<body>
+<body >
 
   <!-- Navigation -->
 
@@ -113,13 +113,13 @@ if (!isset($_SESSION['usuario'])) {
                 <!-- Sign In Form -->
                 <form action="servidor/login/editarDB.php" method="post">
                   <div class="form-floating mb-3">
-                    <input value="<?php echo $_SESSION['usuario']; ?>" type="text" class="form-control" name="usuario"required autofocus
+                    <input value="<?php echo $_SESSION['usuario'] ?>" type="text" class="form-control" name="usuario"required autofocus
                       id="usuario" placeholder="Usuario">
                     <label for="usuario">Usuario</label>
                   </div>
 
                   <div class="form-floating mb-3">
-                    <input value="<?php echo $_SESSION['password']; ?>" type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                    <input value="<?php echo $_SESSION['password'] ?>" type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                     <label for="password">Password</label>
                   </div>
 
@@ -130,18 +130,18 @@ if (!isset($_SESSION['usuario'])) {
                   </div>
 
                   <div class="form-floating mb-3">
-                    <input value="<?php if($_SESSION['horario']){echo $_SESSION['horario'];}?>"horario" class="form-control" name="horario" id="horario" placeholder="Horario" required>
+                    <input value="<?php echo $_SESSION['horario']?>"horario" class="form-control" name="horario" id="horario" placeholder="Horario" required>
                     <label for="horario">Horario</label>
                   </div>
 
                   <div class="form-floating mb-3">
-                    <input value="<?php if($_SESSION['direccion']){echo $_SESSION['direccion'];}?>" type="direccion" class="form-control" name="direccion" id="direccion"required
+                    <input value="<?php echo $_SESSION['direccion']?>" type="direccion" class="form-control" name="direccion" id="direccion"required
                       placeholder="Direccion">
                     <label for="direccion">Direccion</label>
                   </div>
 
                   <div class="form-floating mb-3">
-                    <input value="<?php if($_SESSION['telefono']){echo $_SESSION['telefono'];} ?>" type="telefono" class="form-control" name="telefono" id="telefono" placeholder="Telefono" required>
+                    <input value="<?php echo $_SESSION['telefono']?>" type="telefono" class="form-control" name="telefono" id="telefono" placeholder="Telefono" required>
                     <label for="telefono">Telefono</label>
                   </div>
 

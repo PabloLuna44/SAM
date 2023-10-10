@@ -13,7 +13,7 @@
             return $query->execute();
         }
 
-        public function editar($usuario, $password, $sexo, $horario, $direccion, $telefono) {
+        public function editar($usuario, $password, $sexo, $horario, $direccion, $telefono,$passwordSH) {
             $CurrentUser = $_SESSION['usuario'];
             $conexion = parent::conectar();
             $sql = "UPDATE t_usuarios SET `usuario`=?, `password`=?, `sexo`=?, `horario`=?, `direccion`=?, `telefono`=? WHERE usuario=?";
@@ -24,19 +24,21 @@
             $_SESSION['horario']=$horario;
             $_SESSION['direccion']=$direccion;
             $_SESSION['telefono']=$telefono;
-            $_SESSION['password'];
+            $_SESSION['password']=$passwordSH;
+          
+            
 
 
             return $query->execute();
         }
         
-        public function User() {
+        public function User($password) {
             $conexion = parent::conectar();
             $CurrentUser = $_SESSION['usuario'];
-            $sql = "SELECT * FROM t_usuarios WHERE usuario = ?";
+            $sql = "SELECT * FROM t_usuarios WHERE usuario = ? and password=?";
             
             $query = $conexion->prepare($sql);
-            $query->bind_param('s', $CurrentUser);
+            $query->bind_param('ss', $CurrentUser,$password);
             $query->execute();
             
             $resultado = $query->get_result();
@@ -64,8 +66,8 @@
                     $_SESSION['usuario'] = $usuario;
                     $_SESSION['password']= $password;
 
-                    $usuario=$this->User();
-
+                    $usuario=$this->User($passwordExistente);
+                    $_SESSION['id_usuario']=$usuario['usuario_id'];
                     $_SESSION['sexo'] = $usuario['sexo'];
                     $_SESSION['horario'] = $usuario['horario'];
                     $_SESSION['direccion'] = $usuario['direccion'];

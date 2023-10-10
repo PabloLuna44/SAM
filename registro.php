@@ -40,7 +40,7 @@
             
 
               <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>
+                <button style="background-color:red; border-color:red;" class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>
               </div>
 
               <a class="d-block text-center mt-2 small" href="index.php">Have an account? Sign In</a>

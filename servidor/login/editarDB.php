@@ -6,10 +6,11 @@
     $horario=$_POST['horario'];
     $direccion=$_POST['direccion'];
     $telefono=$_POST['telefono'];
+    $passwordSH=$_POST['password'];
 
     $Auth = new Auth();
 
-    if ($Auth->editar($usuario, $password,$sexo,$horario,$direccion,$telefono)) {
+    if ($Auth->editar($usuario,$password,$sexo,$horario,$direccion,$telefono,$passwordSH)) {
         header("location:../../editar.php");
 
     } else {
