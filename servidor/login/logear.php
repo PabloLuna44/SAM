@@ -17,9 +17,9 @@
         
         if($Auth_trabajador->logear($usuario, $password) && $que_es==0){
             header("location:../../inicio_trabajador.php");
+        }else{
+            header("location:../../error.php");
         }
-
-        header("location:../../error.php");
 
     }
 

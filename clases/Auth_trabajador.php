@@ -3,7 +3,6 @@
 }
 
     include "Conexion1.php";
-
     class Auth_trabajador extends Conexion1 {
         public function logear($usuario, $password) {
             $conexion = parent::conectar();

@@ -5,7 +5,7 @@ class Conexion{
       public $usuario='root';
       public $password='';
       public $database='zapateria';
-      public $port='3306';
+      public $port='3307';
 
 
 
