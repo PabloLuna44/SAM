@@ -1,7 +1,7 @@
 <?php session_start();
 
-if(!isset($_SESSION['usuario'])){
-    header("location:index.php");//Si el usuario no esta logiado no va a poder acceder a inicio NOTA:usar esto para cuando un usuario sea admin
+if((!isset($_SESSION['usuario'])) or $_SESSION['privilegio']==0){//Si el usuario no se a logeado o no tiene privilegios nesesarios no va a poder acceder a esta pagina
+    header("location:error_privilegio.php");
 }
    
 ?>
@@ -32,11 +32,15 @@ if(!isset($_SESSION['usuario'])){
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="inicio.php">Home</a>
+          <a class="nav-link" href="Vistas/Ver_inventario.php">Inventario</a>
         </li>
         <li class="nav-item">
           <!-- Agregar en about infomacion sobre la empresa -->
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="Vistas/Ver_Clientes.php">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <!-- Agregar en about infomacion sobre la empresa -->
+          <a class="nav-link" href="Vistas/Ver_Empleados.php">Empleados</a>
         </li>
 
         <li  class="nav-item">

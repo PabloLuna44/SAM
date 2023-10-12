@@ -19,12 +19,12 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Login de usuario</h3>
+              <h3 class="login-heading mb-4" style="color:white">Login de usuario</h3>
 
               <!-- Sign In Form para administrador -->
               <form  action="servidor/login/logear.php" method="post">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuario">
+                  <input type="number" class="form-control" name="usuario" id="usuario" placeholder="Usuario">
                   <label for="usuario">Usuario</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -32,10 +32,10 @@
                   <label for="password">Password</label>
                 </div>
                 <div class="d-grid">
-                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="dec" value="1">Administrador</button>
-                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="dec" value="0">Trabajador</button>
+                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="privilegio" value="1">Administrador</button>
+                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="privilegio" value="0">Trabajador</button>
                   <div class="text-center">
-                    <a style="color:black;" class="small" href="registro.php">Registrate aqui!</a>
+                    <a style="color:white" class="small" href="registro.php">Registrate aqui!</a>
                   </div>
                 </div>
               </form>

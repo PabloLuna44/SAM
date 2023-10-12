@@ -26,7 +26,7 @@
             <form action="servidor/registro/registrar.php" method="post">
 
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario" required autofocus>
+                <input type="number" class="form-control" id="usuario" name="usuario" placeholder="usuario" required autofocus>
                 <label for="usuario">Usuario</label>
               </div>
 

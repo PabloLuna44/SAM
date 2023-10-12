@@ -1,7 +1,7 @@
 <?php session_start();
 
-if (!isset($_SESSION['usuario'])) {
-  header("location:index.php"); //Si el usuario no esta logiado no va a poder acceder a inicio NOTA:usar esto para cuando un usuario sea admin
+if ((!isset($_SESSION['usuario'])) or $_SESSION['privilegio']==0) {
+  header("location:error_privilegio.php"); //Si el usuario no esta logiado no va a poder acceder a inicio NOTA:usar esto para cuando un usuario sea admin
 }
 
 ?>
@@ -76,44 +76,40 @@ if (!isset($_SESSION['usuario'])) {
                   </thead>
                   <tbody>
 
-                   
                     <tr>
+                      <th scope="row">Nombre</th>
+                      <td><?php echo $_SESSION['nombreAdmin']?></td>
+                    </tr>
+
+                    <tr>
+  
                       <th scope="row">Usuario</th>
                       <td><?php echo $_SESSION['usuario']?></td>
                     </tr>
 
                     <tr>
-                      <th scope="row">Sexo</th>
-                      <td><?php echo $_SESSION['sexo']?></td>
+                      <th scope="row">Password</th>
+                      <td><?php echo $_SESSION['password']?></td>
                     </tr>
 
-                   
-                    <tr>
-                      <th scope="row">Horario</th>
-                      <td><?php echo $_SESSION['horario']?></td>
-                    </tr>
-
-                   
-                    <tr>
-                      <th scope="row">Dirección</th>
-                      <td><?php echo $_SESSION['direccion']?></td>
-                    </tr>
-
-                    
-                    <tr>
-                      <th scope="row">Teléfono</th>
-                      <td><?php echo $_SESSION['telefono']?></td>
-                    </tr>
-
+              
                   </tbody>
                 </table>
 
 
 
                 <!-- Sign In Form -->
-                <form action="servidor/login/editarDB.php" method="post">
+                <form action="servidor/login/editarAdmin.php" method="post">
+
+                 <div class="form-floating mb-3">
+                    <input value="<?php echo $_SESSION['nombreAdmin']?>" type="nombreAdmin" class="form-control" name="nombreAdmin"required
+                      id="nombreAdmin" placeholder="nombreAdmin">
+                    <label for="nombreAdmin">Nombre</label>
+                  </div>                
+              
+
                   <div class="form-floating mb-3">
-                    <input value="<?php echo $_SESSION['usuario'] ?>" type="text" class="form-control" name="usuario"required autofocus
+                    <input value="<?php echo $_SESSION['usuario'] ?>" type="number" class="form-control" name="usuario"required autofocus
                       id="usuario" placeholder="Usuario">
                     <label for="usuario">Usuario</label>
                   </div>
@@ -123,30 +119,10 @@ if (!isset($_SESSION['usuario'])) {
                     <label for="password">Password</label>
                   </div>
 
-                  <div class="form-floating mb-3">
-                    <input value="<?php echo $_SESSION['sexo']?>" type="sexo" class="form-control" name="sexo"required
-                      id="sexo" placeholder="Sexo">
-                    <label for="sexo">Sexo</label>
-                  </div>
+              
 
-                  <div class="form-floating mb-3">
-                    <input value="<?php echo $_SESSION['horario']?>"horario" class="form-control" name="horario" id="horario" placeholder="Horario" required>
-                    <label for="horario">Horario</label>
-                  </div>
-
-                  <div class="form-floating mb-3">
-                    <input value="<?php echo $_SESSION['direccion']?>" type="direccion" class="form-control" name="direccion" id="direccion"required
-                      placeholder="Direccion">
-                    <label for="direccion">Direccion</label>
-                  </div>
-
-                  <div class="form-floating mb-3">
-                    <input value="<?php echo $_SESSION['telefono']?>" type="telefono" class="form-control" name="telefono" id="telefono" placeholder="Telefono" required>
-                    <label for="telefono">Telefono</label>
-                  </div>
-
-
-                  <div class="d-grid">
+      
+                 <div class="d-grid">
                     <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                       type="submit" >Guardar</button>
                   </div>

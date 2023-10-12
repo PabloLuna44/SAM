@@ -13,37 +13,18 @@
             return $query->execute();
         }
 
-        public function editar($usuario, $password, $sexo, $horario, $direccion, $telefono,$passwordSH) {
+        public function editar($usuario, $password,$nombreAdmin,$passwordSH) {
             $CurrentUser = $_SESSION['usuario'];
             $conexion = parent::conectar();
-            $sql = "UPDATE t_usuarios SET `usuario`=?, `password`=?, `sexo`=?, `horario`=?, `direccion`=?, `telefono`=? WHERE usuario=?";
+            $sql = "UPDATE administradores SET `idAdmin`=?, `password`=?, `nombreAdmin`=? WHERE `idAdmin`=?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('sssssss', $usuario, $password, $sexo, $horario, $direccion, $telefono, $CurrentUser);
+            $query->bind_param('ssss', $usuario, $password,$nombreAdmin,$CurrentUser);
             $_SESSION['usuario']=$usuario;
-            $_SESSION['sexo']=$sexo;
-            $_SESSION['horario']=$horario;
-            $_SESSION['direccion']=$direccion;
-            $_SESSION['telefono']=$telefono;
             $_SESSION['password']=$passwordSH;
+            $_SESSION['nombreAdmin']=$nombreAdmin;
 
             return $query->execute();
         }
-
-        /*public function editar($usuario, $password, $sexo, $horario, $direccion, $telefono,$passwordSH) {
-            $CurrentUser = $_SESSION['usuario'];
-            $conexion = parent::conectar();
-            $sql = "UPDATE t_usuarios SET `usuario`=?, `password`=?, `sexo`=?, `horario`=?, `direccion`=?, `telefono`=? WHERE usuario=?";
-            $query = $conexion->prepare($sql);
-            $query->bind_param('sssssss', $usuario, $password, $sexo, $horario, $direccion, $telefono, $CurrentUser);
-            $_SESSION['usuario']=$usuario;
-            $_SESSION['sexo']=$sexo;
-            $_SESSION['horario']=$horario;
-            $_SESSION['direccion']=$direccion;
-            $_SESSION['telefono']=$telefono;
-            $_SESSION['password']=$passwordSH;
-
-            return $query->execute();
-        }*/
         
         public function User($password) {
             $conexion = parent::conectar();
@@ -78,13 +59,10 @@
                 if (password_verify($password,$passwordExistente)) {
                     $_SESSION['usuario'] = $usuario;
                     $_SESSION['password']= $password;
-
-                    /*$usuario=$this->User($passwordExistente);
-                    $_SESSION['id_usuario']=$usuario['usuario_id'];
-                    $_SESSION['sexo'] = $usuario['sexo'];
-                    $_SESSION['horario'] = $usuario['horario'];
-                    $_SESSION['direccion'] = $usuario['direccion'];
-                    $_SESSION['telefono'] = $usuario['telefono'];*/
+                    $_SESSION['privilegio']=1;
+                    $user=$this->User($passwordExistente);
+                    $_SESSION['nombreAdmin']=$user['nombreAdmin'];
+                    
                     
                     
                     return true;

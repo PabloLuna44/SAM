@@ -1,7 +1,7 @@
 <?php
 
 
- include "../../clases/Auth_admin.php";
+ include "../../clases/Auth_trabajador.php";
 
 
  $usuario= $_POST['usuario'];
@@ -9,7 +9,7 @@
 
 
 
- $Auth=new Auth();
+ $Auth=new Auth_trabajador();
 
 
  if($Auth->registrar($usuario,$password)){
