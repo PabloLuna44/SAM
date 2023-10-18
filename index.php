@@ -35,7 +35,7 @@
                   <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="privilegio" value="1">Administrador</button>
                   <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="privilegio" value="0">Trabajador</button>
                   <div class="text-center">
-                    <a style="color:white" class="small" href="registro.php">Registrate aqui!</a>
+                    
                   </div>
                 </div>
               </form>
