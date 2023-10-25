@@ -25,7 +25,14 @@
 
             return $query->execute();
         }
-        
+        public function registrar_cliente($nombre, $clave, $domicilio, $telefono)
+        {
+            $conexion = parent::conectar();
+            $sql = "INSERT INTO clientes  (NombreCliente, ClaveCliente, DomicilioCliente, TelefonoCliente)  VALUES (?,?,?,?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('ssss', $nombre, $clave, $domicilio, $telefono);
+            return $query->execute();
+        }
         public function User($password) {
             $conexion = parent::conectar();
             $CurrentUser = $_SESSION['usuario'];
