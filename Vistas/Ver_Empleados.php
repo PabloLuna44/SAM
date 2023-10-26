@@ -15,7 +15,9 @@ if (!isset($_SESSION['usuario']) or $_SESSION['privilegio']==0) {//Solo pagina p
 </head>
 <body>
     <h1>Empleados</h1>
-    <a style="color:red" class="small" href="../registro.php">Registrar empleado!</a>
+    <a style="color:red" class="small" href="../registroTrabajador.php">Registrar empleado!</a>
+
+    <a style="color:red" class="small" href="../registroAdmin.php">Registrar admin!</a>
     
 </body>
 </html>

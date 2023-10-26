@@ -1,5 +1,5 @@
 <?php 
-    include "../../clases/Auth_trabajador.php";
+    include "../../clases/Auth.php";
     $NombreVendedor=$_POST['NombreVendedor'];
     $usuario = $_POST['usuario'];
     $password= password_hash($_POST['password'],PASSWORD_DEFAULT);
@@ -9,9 +9,9 @@
     $telefono=$_POST['telefono'];
     $passwordSH=$_POST['password'];
 
-    $Auth = new Auth_trabajador();
+    $Auth = new Auth();
 
-    if ($Auth->editar($NombreVendedor,$usuario,$password,$direccion,$sexo,$horario,$telefono,$passwordSH)) {
+    if ($Auth->editarTrabajador($NombreVendedor,$usuario,$password,$direccion,$sexo,$horario,$telefono,$passwordSH)) {
         header("location:../../Vistas/Ver_Perfil.php");
 
     } else {

@@ -1,5 +1,5 @@
 <?php
-include "../../clases/Auth_admin.php";
+include "../../clases/Auth.php";
 
 
     $nombre=$_POST['Nombre'];

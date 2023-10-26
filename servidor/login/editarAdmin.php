@@ -1,6 +1,6 @@
 
 <?php 
-    include "../../clases/Auth_admin.php";
+    include "../../clases/Auth.php";
     $usuario = $_POST['usuario'];
     $password= password_hash($_POST['password'],PASSWORD_DEFAULT);
     $nombreAdmin=$_POST['nombreAdmin'];
@@ -8,7 +8,7 @@
 
     $Auth = new Auth();
 
-    if ($Auth->editar($usuario,$password,$nombreAdmin,$passwordSH)) {
+    if ($Auth->editarAdmin($usuario,$password,$nombreAdmin,$passwordSH)) {
         header("location:../../editar.php");
 
     } else {

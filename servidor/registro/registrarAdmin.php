@@ -12,8 +12,8 @@
  $Auth=new Auth();
 
 
- if($Auth->registrarTrabajador($usuario,$password)){
-    header("location:../../index.php");
+ if($Auth->registrarAdmin($usuario,$password)){
+    header("location:../../registroAdmin.php");
  }
  else{
    echo "No se ha podido registrar";
