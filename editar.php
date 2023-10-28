@@ -37,9 +37,7 @@ if ((!isset($_SESSION['usuario'])) or $_SESSION['privilegio']==0) {
           <li class="nav-item active">
             <a class="nav-link" href="inicio.php">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
+          
 
           <li class="nav-item">
             <a style="color:black" class="nav-link" href="editar.php">
@@ -91,6 +89,8 @@ if ((!isset($_SESSION['usuario'])) or $_SESSION['privilegio']==0) {
                       <th scope="row">Password</th>
                       <td><?php echo $_SESSION['password']?></td>
                     </tr>
+
+                    
 
               
                   </tbody>

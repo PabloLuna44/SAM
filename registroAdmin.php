@@ -69,11 +69,14 @@ if((!isset($_SESSION['usuario'])) or $_SESSION['privilegio']==0){//Si el usuario
             <form action="servidor/registro/registrarAdmin.php" method="post">
 
               <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required >
+                <label for="password">Nombre</label>
+              </div>
+
+              <div class="form-floating mb-3">
                 <input type="number" class="form-control" id="usuario" name="usuario" placeholder="usuario" required autofocus>
                 <label for="usuario">Usuario</label>
               </div>
-
-
 
               <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required >

@@ -74,14 +74,35 @@ if((!isset($_SESSION['usuario'])) or $_SESSION['privilegio']==0){//Si el usuario
                 <label for="usuario">Usuario</label>
               </div>
 
-
-
               <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required >
                 <label for="password">Password</label>
               </div>
 
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required >
+                <label for="password">Nombre</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion" required >
+                <label for="password">Direccion</label>
+              </div>
             
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="sexo" name="sexo" placeholder="sexo" required >
+                <label for="password">Sexo (solo un caracter M o F)</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="time" class="form-control" id="horario" name="horario" placeholder="horario" required >
+                <label for="password">Horario</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="telefono" required >
+                <label for="password">Telefono</label>
+              </div>
 
               <div class="d-grid mb-2">
                 <button style="background-color:red; border-color:red;" class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>
