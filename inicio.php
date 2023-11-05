@@ -25,6 +25,9 @@ if((!isset($_SESSION['usuario'])) or $_SESSION['privilegio']==0){//Si el usuario
     <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
+    <div>
+      <img src="../img/Tenis.jpg" alt="image" width="2" height="2">
+    </div>
     <a class="navbar-brand" href="inicio.php">SAM</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -63,23 +66,17 @@ if((!isset($_SESSION['usuario'])) or $_SESSION['privilegio']==0){//Si el usuario
 <header class="masthead">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
-      <div class="col-12 text-center">
-        <h1 class="fw-light">Vertically Centered Masthead Content</h1>
-        <p class="lead">A great starter layout for a landing page</p>
+      <div>
+        <h1>Zapateria Marcus</h1>
+        <p>Nuestra zapateria cuenta con 30 años de experiencia, creando y reparando todo tipo de calzado, para toda ocacion</p>
+        <p>Telefonos de consulta:</p>
+        <pre>   *3314567823</pre>
+        <pre>   *3356754567</pre>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Page Content -->
-<section class="py-5">
-  <div class="container">
-    <h2 class="fw-light">Page Content</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis
-      blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat
-      reprehenderit expedita.</p>
-  </div>
-</section>
    
    
 

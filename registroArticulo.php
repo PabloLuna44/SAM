@@ -114,7 +114,7 @@ if (!isset($_SESSION['usuario']) or $_SESSION['privilegio']==0 ){
                   </div>
 
                   <div class="form-floating mb-3">
-                    <input type="file" class="form-control" name="Img" id="Img"required
+                    <input type="file" class="form-control" name="Img" id="Img" acecept=".jpg, .jpeg, .png"required
                       placeholder="Img">
                     <label for="Img">Imagen</label>
                   </div>
