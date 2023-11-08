@@ -52,6 +52,25 @@ class Auth extends Conexion
         }
     }
 
+
+    public function searchAdmin($idAdmin)
+    {
+        $conexion = parent::conectar();
+        $sql = "SELECT * FROM administradores WHERE idAdmin = ?";
+        $query = $conexion->prepare($sql);
+        $query->bind_param('s', $idAdmin);
+        $query->execute();
+
+        $resultado = $query->get_result();
+
+        if ($resultado->num_rows > 0) {
+            return $resultado->fetch_assoc();
+        } else {
+            return null; // Cliente no encontrado
+        }
+    }
+
+
     public function logearAdmin($usuario, $password)
     {
         $conexion = parent::conectar();
@@ -84,8 +103,40 @@ class Auth extends Conexion
     }
 
 
-    public function MostarAdmins(){//IMplemetacion de funcion para mostrar a todos los administradores
+    public function MostrarAdmins(){//Implemetacion de funcion para mostrar a todos los administradores
+        $conexion = parent::conectar();
+        $sql = "SELECT * FROM administradores;";
+        return (mysqli_query($conexion, $sql));
+    }
 
+
+    public function DeleteAdmin($idAdmin)
+    {
+        $conexion = parent::conectar();
+        $sql = "DELETE FROM administradores WHERE idAdmin = ?";
+        $query = $conexion->prepare($sql);
+        $query->bind_param('s', $idAdmin);
+
+        if ($query->execute()) {
+            echo "Eliminación exitosa.";
+            return true;
+        } else {
+            echo "Error al eliminar: " . $query->error;
+            return false;
+        }
+
+
+    }
+
+
+    public function UpdateAdmin($usuario, $password, $nombreAdmin,$CurrentIdAdmin)
+    {
+        $conexion = parent::conectar();
+        $sql = "UPDATE administradores SET `idAdmin`=?, `password`=?, `nombreAdmin`=? WHERE `idAdmin`=?";
+        $query = $conexion->prepare($sql);
+        $query->bind_param('ssss', $usuario, $password, $nombreAdmin, $CurrentIdAdmin);
+        
+        return $query->execute();
     }
 
     #------------------------------------Trabajador-------------------------------------------------------
@@ -175,7 +226,56 @@ class Auth extends Conexion
 
     
     public function MostarTrabajadores(){//IMplemetacion de funcion para mostrar a todos los trabajadores
+        $conexion = parent::conectar();
+        $sql = "SELECT * FROM trabajador;";
+        return (mysqli_query($conexion, $sql));
+    }
 
+
+    public function DeleteTrabajador($IdVendedor)
+    {
+        $conexion = parent::conectar();
+        $sql = "DELETE FROM trabajador WHERE IdVendedor = ?";
+        $query = $conexion->prepare($sql);
+        $query->bind_param('s', $IdVendedor);
+
+        if ($query->execute()) {
+            echo "Eliminación exitosa.";
+            return true;
+        } else {
+            echo "Error al eliminar: " . $query->error;
+            return false;
+        }
+
+
+    }
+
+    public function SearchTrabajador($IdVendedor)
+    {
+        $conexion = parent::conectar();
+        $sql = "SELECT * FROM trabajador WHERE IdVendedor = ? ";
+        $query = $conexion->prepare($sql);
+        $query->bind_param('s', $IdVendedor);
+        $query->execute();
+
+        $resultado = $query->get_result();
+
+        if ($resultado->num_rows > 0) {
+            return $resultado->fetch_assoc();
+        } else {
+            return null; // Usuario no encontrado
+        }
+    }
+
+
+    public function UpdateTrabajador($NombreVendedor, $usuario, $password, $direccion, $sexo, $horario, $telefono,$CurrentTrabajador)
+    {
+        $conexion = parent::conectar();
+        $sql = "UPDATE trabajador SET `NombreVendedor`=?,`IdVendedor`=?, `password`=?, `direccion`=?,`sexo`=?, `horario`=?, `telefono`=? WHERE IdVendedor=?";
+        $query = $conexion->prepare($sql);
+        $query->bind_param('ssssssss', $NombreVendedor, $usuario, $password, $direccion, $sexo, $horario, $telefono, $CurrentTrabajador);
+    
+        return $query->execute();
     }
 
     #------------------------------------Clientes-------------------------------------------------------------------
@@ -246,7 +346,7 @@ class Auth extends Conexion
     public function registrarArticulo($NumeroControl, $Marca, $Modelo, $Material, $Color, $Numero, $TipoCalzado, $Img)
     {
         if (is_array($Img) && isset($Img['Img']['name'])) {
-            $ruta1 = 'C:/Users/Hp Laptop/Desktop/SAM-ControlDeProyectos/SAM-Version6/ImagenesArt/' . $Img['Img']['name'];
+            $ruta1 = 'C:/Users/Hp Laptop/Desktop/SAM-ControlDeProyectos/SAM-Version7/ImagenesArt/' . $Img['Img']['name'];
             $ruta2='../ImagenesArt/' . $Img['Img']['name'];
             move_uploaded_file($Img['Img']['tmp_name'], $ruta1);
             $conexion = parent::conectar();
@@ -298,7 +398,7 @@ class Auth extends Conexion
     public function ModifyArt($NumeroControl, $Marca, $Modelo, $Material, $Color, $Numero, $TipoCalzado, $Img,$Current)
     {
         if (is_array($Img) && isset($Img['Img']['name'])) {
-            $ruta1 = 'C:/Users/Hp Laptop/Desktop/SAM-ControlDeProyectos/SAM-Version6/ImagenesArt/' . $Img['Img']['name'];//URL de la carpeta een la raiz
+            $ruta1 = 'C:/Users/Hp Laptop/Desktop/SAM-ControlDeProyectos/SAM-Version7/ImagenesArt/' . $Img['Img']['name'];//URL de la carpeta een la raiz
             $ruta2='../ImagenesArt/' . $Img['Img']['name'];
             move_uploaded_file($Img['Img']['tmp_name'], $ruta1);
             $conexion = parent::conectar();

@@ -51,63 +51,70 @@ if (!isset($_SESSION['usuario'])) {
 
 
                                     <div class="form-floating mb-3">
-                                        <input value="<?php echo $registro['NumeroControl'];?>" type="number" class="form-control" name="NumeroControl" required
-                                            autofocus id="NumeroControl" placeholder="Nombre">
+                                        <input value="<?php echo $registro['NumeroControl']; ?>" type="number"
+                                            class="form-control" name="NumeroControl" required autofocus
+                                            id="NumeroControl" placeholder="Nombre">
                                         <label for="NumeroControl">Numero De Control</label>
                                     </div>
 
 
                                     <div class="form-floating mb-3">
-                                        <input value="<?php echo $registro['Marca'];?>" type="text" class="form-control" name="Marca" id="Marca"
-                                            placeholder="Marca" required>
+                                        <input value="<?php echo $registro['Marca']; ?>" type="text" class="form-control"
+                                            name="Marca" id="Marca" placeholder="Marca" required>
                                         <label for="Marca">Marca</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input value="<?php echo $registro['Modelo'];?>" type="text" class="form-control" name="Modelo" id="Modelo" required
-                                            placeholder="">
+                                        <input value="<?php echo $registro['Modelo']; ?>" type="text"
+                                            class="form-control" name="Modelo" id="Modelo" required placeholder="">
                                         <label for="Modelo">Modelo</label>
                                     </div>
 
-                                    <div  class="form-floating mb-3">
-                                        <input value="<?php echo $registro['Material'];?>" type="text" class="form-control" name="Material" id="Material" required
+                                    <div class="form-floating mb-3">
+                                        <input value="<?php echo $registro['Material']; ?>" type="text"
+                                            class="form-control" name="Material" id="Material" required
                                             placeholder="Material">
                                         <label for="Material">Material</label>
                                     </div>
 
-                                    <div  class="form-floating mb-3">
-                                        <input value="<?php echo $registro['Color'];?>"  type="text" class="form-control" name="Color" id="Color" required
-                                            placeholder="Telfono">
+                                    <div class="form-floating mb-3">
+                                        <input value="<?php echo $registro['Color']; ?>" type="text" class="form-control"
+                                            name="Color" id="Color" required placeholder="Telfono">
                                         <label for="Color">Color</label>
                                     </div>
 
-                                    <div  class="form-floating mb-3">
-                                        <input value="<?php echo $registro['Numero'];?>" type="number" class="form-control" name="Numero" id="Numero" required
+                                    <div class="form-floating mb-3">
+                                        <input value="<?php echo $registro['Numero']; ?>" type="number"
+                                            class="form-control" name="Numero" id="Numero" required
                                             placeholder="Numero">
                                         <label for="Numero">Numero</label>
                                     </div>
 
-                                    <div  class="form-floating mb-3">
-                                        <input value="<?php echo $registro['TipoCalzado'];?>" type="text" class="form-control" name="TipoCalzado" id="TipoCalzado"
-                                            required placeholder="TipoCalzado">
+                                    <div class="form-floating mb-3">
+                                        <input value="<?php echo $registro['TipoCalzado']; ?>" type="text"
+                                            class="form-control" name="TipoCalzado" id="TipoCalzado" required
+                                            placeholder="TipoCalzado">
                                         <label for="TipoCalzado">TipoCalzado</label>
                                     </div>
 
-                                    <input type="number" name="Current" style="display: none;" value="<?php echo $NumeroControl;?>">
-                                    <input type="text" name="CurrentImg" style="display;"  value="<?php echo $registro['Img'];?>">
-                                   
+                                    <input type="number" name="Current" style="display: none;"value="<?php echo $NumeroControl; ?>">
+                                    <input type="text" name="CurrentImg" style="display:none;" value="<?php echo $registro['Img']; ?>">
 
-                                    <div  class="form-floating mb-3">
-                                        <input  type="file" class="form-control" name="Img" id="Img" 
-                                            placeholder="Img">
+
+                                    <div class="form-floating mb-3">
+                                        <input type="file" class="form-control" name="Img" id="Img"
+                                            acecept=".jpg, .jpeg, .png"  placeholder="Img">
                                         <label for="Img">Imagen</label>
                                     </div>
 
-                                    
+
+
+
+
 
                                     <div class="d-grid">
                                         <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" "
-                                            type="submit">Guardar</button>
+                                            type=" submit">Guardar</button>
                                     </div>
 
                                 </form>

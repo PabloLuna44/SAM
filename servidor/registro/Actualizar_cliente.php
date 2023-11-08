@@ -6,8 +6,7 @@ include "../../clases/Auth.php";
     $clave=$_POST['Clave'];
     $domicilio=$_POST['Domicilio'];
     $telefono=$_POST['Telefono'];
-
-
+ 
 
  $Auth=new Auth();
 

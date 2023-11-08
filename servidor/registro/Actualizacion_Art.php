@@ -15,7 +15,7 @@ include "../../clases/Auth.php";
  }
  else{
   $Img2=$_FILES;
-  $ruta1 = 'C:/Users/Hp Laptop/Desktop/SAM-ControlDeProyectos/SAM-Version6/ImagenesArt/' . $Img2['Img']['name'];
+  $ruta1 = 'C:/Users/Hp Laptop/Desktop/SAM-ControlDeProyectos/SAM-Version7/ImagenesArt/' . $Img2['Img']['name'];
   $Img='../ImagenesArt/' . $Img2['Img']['name'];
   move_uploaded_file($Img2['Img']['tmp_name'], $ruta1);
   
